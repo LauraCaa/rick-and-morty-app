@@ -1,0 +1,7 @@
+services:
+  rick-and-morty:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/opt/rick-and-morty"
