@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Greycliff CF';
+  src: url('./assets/fonts/fonnts.com-Greycliff_CF_Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Greycliff CF bold';
+  src: url('./assets/fonts/fonnts.com-Greycliff_CF_Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Greycliff CF 600';
+  src: url('./assets/fonts/fonnts.com-Greycliff_CF_Medium.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Greycliff CF', sans-serif;
+}
+h1 {
+  font-family: 'Greycliff CF bold', sans-serif;
+}
+.semibold-text {
+  font-family: 'Greycliff CF 600', sans-serif;
+}
