@@ -1,10 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import CommentsSection from "../comments/CommentsSection";
 import FavoriteButton from "../ui/FavoriteButton";
 import DeleteCharacter from "./DeleteCharacterButton";
 
+
 export default function CharacterCard() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white py-7 px-4 md:mx-14 flex flex-col h-full">
+      <button className="md:hidden mb-10" onClick={() => navigate("/")}>
+        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 15L1 8M1 8L8 1M1 8L19 8" stroke="#8054C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
       <div className="flex-grow">
         <div className="flex justify-between items-center pb-3">
           <div className="relative">
@@ -39,8 +48,9 @@ export default function CharacterCard() {
           </li>
         </ul>
       </div>
-
-      <CommentsSection />
+        <div className="mt-auto">
+        <CommentsSection />
+      </div>
     </div>
   );
 }
