@@ -2,7 +2,7 @@ import FavoriteButton from "../ui/FavoriteButton";
 
 export default function CharacterItem() {
   return (
-    <div className="flex items-center justify-between py-4 hover:border-1 hover:border-primary-100 border-t-2 border-gray-100 ">
+    <div className="flex items-center justify-between py-4  md:hover:border-primary-100 border-t-2 border-gray-100 ">
       <div className="flex items-center gap-3">
         <img
           src="https://rickandmortyapi.com/api/character/avatar/6.jpeg"

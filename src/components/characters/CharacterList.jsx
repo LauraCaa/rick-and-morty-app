@@ -10,10 +10,10 @@ export default function CharacterList() {
         CHARACTERS (4)
       </h2>
      <ul>
-        <li className="rounded-lg hover:bg-primary-100 cursor-pointer px-4">
+        <li className="rounded-lg md:hover:bg-primary-100 cursor-pointer px-4">
           <CharacterItem />
         </li>
-        <li className="rounded-lg hover:bg-primary-100 cursor-pointer px-4">
+        <li className="rounded-lg md:hover:bg-primary-100 cursor-pointer px-4">
           <CharacterItem />
         </li>
       </ul>

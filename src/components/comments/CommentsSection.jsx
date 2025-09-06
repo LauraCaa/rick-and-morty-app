@@ -24,7 +24,7 @@ export default function CommentsSection() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col">
       <h2 className="text-lg font-bold mb-4">Comments</h2>
       <CommentList comments={comments} onDeleteComment={deleteComment} />
       <CommentForm onAddComment={addComment} />
