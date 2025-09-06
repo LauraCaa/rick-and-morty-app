@@ -1,8 +1,14 @@
-import './index.css';
-export default function Home() {
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import CharacterCard from "./components/characters/CharacterCard";
+
+export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-600">
-      <p className="text-5xl font-bold text-white">Hello world</p>
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<CharacterCard />} />
+        <Route path="character/:id" element={<CharacterCard />} />
+      </Route>
+    </Routes>
+  );
 }
