@@ -12,6 +12,10 @@ export default function SearchFilter({ onApplyFilter, onClose, pendingFilters, o
     onFilterChange({ sortDirection: direction });
   };
 
+  const handleStatusSelect = (option) => {
+    onFilterChange({ characterStatusFilter: option });
+  };
+
   const handleApply = () => {
     onApplyFilter();
     onClose();
@@ -83,6 +87,45 @@ export default function SearchFilter({ onApplyFilter, onClose, pendingFilters, o
             </button>
           </div>
         </div>
+
+        <div className="mb-4">
+          <h3 className="text-gray-400 text-sm mb-2">Status</h3>
+          <div className="flex space-x-2">
+            {['All', 'Alive', 'Dead', 'Unknown'].map((option) => (
+              <button
+                key={option}
+                onClick={() => handleStatusSelect(option)}
+                className={`flex-1 p-3 rounded-lg text-sm border-gray-200 border shadow-xs transition ${
+                  pendingFilters.characterStatusFilter === option
+                    ? 'bg-primary-100 text-primary-600'
+                    : 'hover:bg-primary-100 hover:text-primary-600'
+                }`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <h3 className="text-gray-400 text-sm mb-2">Gender</h3>
+          <div className="flex space-x-2">
+            {['All', 'Male', 'Female'].map((option) => (
+              <button
+                key={option}
+                onClick={() => onFilterChange({ characterGender: option })}
+                className={`flex-1 p-3 rounded-lg text-sm border-gray-200 border shadow-xs transition ${
+                  pendingFilters.characterGender === option
+                    ? 'bg-primary-100 text-primary-600'
+                    : 'hover:bg-primary-100 hover:text-primary-600'
+                }`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+
       </div>
 
       <div className="mt-auto flex-shrink-0">

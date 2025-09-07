@@ -9,16 +9,26 @@ export const useFilteredCharacters = (characters, { searchTerm, filterOptions, f
       .filter(character => {
         if (filterOptions.characterStatus === 'Starred') {
           return favorites.has(character.id);
-        }
-        if (filterOptions.characterStatus === 'Others') {
+        } else if (filterOptions.characterStatus === 'Others') {
           return !favorites.has(character.id);
         }
         return true;
       })
       .filter(character => {
         const matchesSearch = !searchTerm || character.name.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesSpecies = filterOptions.characterSpecies === 'All' || character.species.toLowerCase() === filterOptions.characterSpecies.toLowerCase();
-        return matchesSearch && matchesSpecies;
+        const matchesSpecies =
+          filterOptions.characterSpecies === 'All' ||
+          character.species.toLowerCase() === filterOptions.characterSpecies.toLowerCase();
+
+        const matchesGender =
+          filterOptions.characterGender === 'All' ||
+          character.gender.toLowerCase() === filterOptions.characterGender.toLowerCase();
+        
+        const matchesStatus =
+          filterOptions.characterStatusFilter === "All" ||
+          character.status.toLowerCase() === filterOptions.characterStatusFilter.toLowerCase();
+
+        return matchesSearch && matchesSpecies && matchesGender && matchesStatus;
       });
 
     return [...filtered].sort((a, b) => {
@@ -27,6 +37,5 @@ export const useFilteredCharacters = (characters, { searchTerm, filterOptions, f
       }
       return b.name.localeCompare(a.name);
     });
-
   }, [characters, searchTerm, filterOptions, favorites, isDeleted]);
 };

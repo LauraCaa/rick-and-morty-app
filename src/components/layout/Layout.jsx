@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
 
 import Header from "./Header";
-import StarredCharacterList from "../characters/lists/FavoriteCharacterList";
-import CharacterList from "../characters/lists/OtherCharacterList";
 import SearchAndFilterBar from "../search/SearchAndFilterBar";
 import CharacterView from "../characters/lists/CharacterView";
 
@@ -15,6 +13,8 @@ export default function Layout() {
   const [filterOptions, setFilterOptions] = useState({
     characterStatus: 'All',
     characterSpecies: 'All',
+    characterGender: 'All',
+    characterStatusFilter: 'All',
     sortDirection: 'A-Z',
   });
   const [pendingFilters, setPendingFilters] = useState(filterOptions);
@@ -37,6 +37,8 @@ export default function Layout() {
   const hasPendingChanges = 
     pendingFilters.characterStatus !== filterOptions.characterStatus ||
     pendingFilters.characterSpecies !== filterOptions.characterSpecies ||
+    pendingFilters.characterGender !== filterOptions.characterGender ||
+    pendingFilters.characterStatus !== filterOptions.characterStatusFilter ||
     pendingFilters.sortDirection !== filterOptions.sortDirection;
 
   return (
@@ -73,8 +75,7 @@ export default function Layout() {
               hasPendingChanges={hasPendingChanges}
             />
           </div>
-          <StarredCharacterList searchTerm={searchTerm} filterOptions={filterOptions} />
-          <CharacterList searchTerm={searchTerm} filterOptions={filterOptions} />
+          <CharacterView searchTerm={searchTerm} filterOptions={filterOptions} />
         </div>
 
         <div className={`flex-1 flex items-center justify-center`}>
