@@ -8,12 +8,12 @@ import FilterStatus from "../search/FilterStatus";
 import FavoriteCharacterList from "./FavoriteCharacterList";
 import OtherCharacterList from "./OtherCharacterList";
 
-export default function CharacterView({ searchTerm, filterOptions }) {
+export default function CharacterView({ searchTerm, filterOptions = {} }) { // 👈 Aquí está el cambio
   const { favorites } = useFavorites();
   const { isDeleted } = useDeletedCharacters();
   const { loading, error, characters: allCharacters } = useGetCharacters();
 
-  const activeFiltersCount = Object.values(filterOptions).filter(value => value !== 'All' && value !== 'A-Z' && value !== '').length;
+  const activeFiltersCount = Object.values(filterOptions || {}).filter(value => value !== 'All' && value !== 'A-Z' && value !== '').length;
 
   const isFilterActive = searchTerm !== '' || activeFiltersCount > 0;
 
