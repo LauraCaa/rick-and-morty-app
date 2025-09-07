@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import AppApolloProvider from "./context/ApolloClientProvider";
+import CharacterView from "./components/characters/lists/CharacterView";
+import CharacterCard from "./components/characters/card/CharacterCard";
+import DeletedCharactersProvider from "./context/DeletedCharactersContext";
+import FavoritesProvider from "./context/FavoritesContext";
+import Layout from "./components/layout/Layout";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppApolloProvider>
+      <FavoritesProvider>
+        <DeletedCharactersProvider>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+                <Route index element={<CharacterView/>}/>
+                <Route path="character/:id" element={<CharacterCard/>}/>
+            </Route>
+          </Routes>
+        </DeletedCharactersProvider>
+      </FavoritesProvider>
+    </AppApolloProvider>
   );
-}
-
-export default App;
+};
