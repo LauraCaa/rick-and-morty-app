@@ -64,7 +64,7 @@ describe('CharacterItem', () => {
   });
 });
 
-jest.mock('../../ui/FavoriteButton', () => {
+jest.mock('../ui/FavoriteButton', () => {
   return function MockFavoriteButton({ isFavorite }) {
     return <div data-testid="favorite-button" data-is-favorite={isFavorite.toString()} />;
   };

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Outlet, useLocation } from "react-router-dom";
 
 import Header from "./Header";
-import SearchAndFilterBar from "../search/SearchAndFilterBar";
+import SearchAndFilterBar from "../characters/search/SearchAndFilterBar";
 import CharacterView from "../characters/lists/CharacterView";
 
 export default function Layout() {

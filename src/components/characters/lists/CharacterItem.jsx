@@ -1,4 +1,4 @@
-import FavoriteButton from "../../ui/FavoriteButton";
+import FavoriteButton from "../ui/FavoriteButton";
 import { useFavorites } from "../../../context/FavoritesContext";
 
 export default function CharacterItem({character}) {

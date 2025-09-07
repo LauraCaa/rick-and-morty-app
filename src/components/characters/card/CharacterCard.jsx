@@ -4,10 +4,10 @@ import { useDeletedCharacters } from "../../../context/DeletedCharactersContext"
 import { useFavorites } from '../../../context/FavoritesContext';
 import { useGetCharacter } from "../../../services/charactersApi";
 
-import CommentsSection from "../../comments/CommentsSection";
+import CommentsSection from "../comments/CommentsSection";
 import DeleteCharacterButton from "./DeleteCharacterButton";
-import FavoriteButton from "../../ui/FavoriteButton";
-import BackButton from "../../ui/BackButton";
+import FavoriteButton from "../ui/FavoriteButton";
+import BackButton from "../ui/BackButton";
 import CharacterDetails from "./CharacterDetails";
 
 export default function CharacterCard() {
