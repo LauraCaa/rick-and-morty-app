@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 
 export default function CommentsSection() {
+  const { id } = useParams();
+  const localStorageKey = `comments-${id}`;
   const [comments, setComments] = useState(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("comments");
+      const stored = localStorage.getItem(localStorageKey);
       return stored ? JSON.parse(stored) : [];
     }
     return [];
   });
 
   useEffect(() => {
-    localStorage.setItem("comments", JSON.stringify(comments));
-  }, [comments]);
+    localStorage.setItem(localStorageKey, JSON.stringify(comments));
+  }, [comments, localStorageKey]);
 
   const addComment = (text) => {
     setComments([...comments, text]);

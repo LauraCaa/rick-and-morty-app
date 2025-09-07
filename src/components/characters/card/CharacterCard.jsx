@@ -59,7 +59,7 @@ export default function CharacterCard() {
       </div>
 
       <div className="mt-auto">
-        <CommentsSection />
+        <CommentsSection key={id}/>
       </div>
     </div>
   );
