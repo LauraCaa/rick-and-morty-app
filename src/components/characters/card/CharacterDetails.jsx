@@ -1,4 +1,4 @@
-export default function CharacterDetails({ character }) {
+export default function CharacterDetails({ character = {} }) {
   const details = [
     { label: "Specie", value: character.species || "Unknown" },
     { label: "Status", value: character.status || "Unknown" },

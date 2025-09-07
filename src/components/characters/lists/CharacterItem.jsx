@@ -19,7 +19,7 @@ export default function CharacterItem({character}) {
           <p className="text-sm text-gray-400">{species}</p>
         </div>
       </div>
-      <div onClick={() => toggleFavorite(id)}>
+      <div  onClick={() => toggleFavorite(id)} data-testid="favorite-button-wrapper">
         <FavoriteButton isFavorite={isCharacterFavorite} />
       </div>
     </div>
