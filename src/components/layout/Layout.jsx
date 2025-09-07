@@ -19,6 +19,9 @@ export default function Layout() {
   });
   const [pendingFilters, setPendingFilters] = useState(filterOptions);
 
+  const activeFiltersCount = Object.values(filterOptions).filter(value => value !== 'All' && value !== 'A-Z').length;
+
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -57,7 +60,7 @@ export default function Layout() {
           />
         </div>
         <div className="flex-1 overflow-y-auto">
-          <CharacterView searchTerm={searchTerm} filterOptions={filterOptions} />
+          <CharacterView searchTerm={searchTerm} filterOptions={filterOptions} activeFiltersCount={activeFiltersCount} />
         </div>
       </aside>
 
