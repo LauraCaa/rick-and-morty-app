@@ -1,15 +1,6 @@
-import { useState } from "react";
-
-export default function FavoriteButton({ initialFavorite = false }) {
-  const [isFavorite, setIsFavorite] = useState(initialFavorite);
-
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-
+export default function FavoriteButton({ isFavorite }) {
   return (
     <button
-      onClick={toggleFavorite}
       className="md:bg-[#fafafa] rounded-full px-2 py-2"
       aria-label="Add to favorites"
     >
